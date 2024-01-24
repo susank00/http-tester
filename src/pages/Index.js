@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const Index = () => {
   const [movies, setMovies] = useState([]);
   const [isError, setIsError] = useState(false);
   const [ErrorText, setErrorText] = useState("");
+  useEffect(() => {
+    fetchMovies();
+  }, []);
   const fetchMovies = async () => {
     // FETch resourecs
     console.log("calling APi");
@@ -21,9 +24,10 @@ const Index = () => {
 
     console.log(movies);
   };
+
   return (
     <div className="App">
-      <button onClick={fetchMovies}>get all movies</button>
+      movies list
       {isError ? (
         <>
           <div

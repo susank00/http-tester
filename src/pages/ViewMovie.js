@@ -1,10 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 const ViewMovie = () => {
   const getParams = useParams();
   const getID = getParams.id;
   const [movieData, setMovieData] = useState({});
+  useEffect(() => {
+    getSingleMovieInfo();
+  }, []);
   const getSingleMovieInfo = async () => {
     try {
       const response = await axios.get(
@@ -17,10 +21,6 @@ const ViewMovie = () => {
   };
   return (
     <>
-      View movie{getID}
-      <br />
-      <button onClick={getSingleMovieInfo}>View details of movie</button>
-      <br />
       movie details: <br />
       <br />
       Movie name: {movieData.name} <br />
