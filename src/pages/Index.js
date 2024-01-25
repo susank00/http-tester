@@ -57,6 +57,16 @@ const Index = () => {
   return (
     <div className="App">
       <Link to="/add">ADD a movie</Link>
+      {localStorage.getItem("accessToken") ? (
+        <>
+          {" "}
+          <Link to="/Profile">Profile</Link>{" "}
+        </>
+      ) : (
+        <>
+          <Link to="/login">Login</Link>
+        </>
+      )}
       <div>
         <input
           type="text"
