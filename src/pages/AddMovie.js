@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
+import MovieNavBar from "../components/MovieNavbar";
 
 const AddMovie = () => {
   const history = useHistory();
@@ -37,9 +38,10 @@ const AddMovie = () => {
   };
   return (
     <>
-      <Link to="/">Home</Link>
+      <MovieNavBar />
+     
       <br />
-      testin
+   
       <form onSubmit={addMovieHandler}>
         <input
           type="text"
